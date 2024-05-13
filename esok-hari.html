@@ -4,60 +4,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- googlefont link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&display=swap" 
-rel="stylesheet">
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<title>weather Watcher</title>
-<style>
-    * {
-        /* border: 2px solid red; */
-        .hover\:under:hover > div {
-            opacity: 1;
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <!-- flaticon & font Awesome -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+    <title>weather Watcher</title>
+    <!-- Inline Style -->
+    <style>
+        * {
+            /* border: 2px solid red; */
+            .hover\:under:hover > div {
+                opacity: 1;
+            }
         }
-    }
 
-    /* @layer utilities{
-        .nav{
-            @apply relative ml-10 text-slate-300 font-poppins font bold tracking-[1px] hover:text-white
-        }
-        .nav::after{
-            @apply content-[''] bg-white h-[3px] w-[0%] left-0 -bottom-0-[5px] rounded-xl absolute duration-300
-        }
-        .nav:hover::after{
-            @apply w-[100%]
-        }
-    } */
-</style>
+        /* #faq1:checked + label .fa-circle-arrow-down {
+            transform: rotate(180deg);
+            transform-origin: center;
+        } */
+
+        /* @layer utilities{
+            .nav{
+                @apply relative ml-10 text-slate-300 font-poppins font bold tracking-[1px] hover:text-white
+            }
+            .nav::after{
+                @apply content-[''] bg-white h-[3px] w-[0%] left-0 -bottom-0-[5px] rounded-xl absolute duration-300
+            }
+            .nav:hover::after{
+                @apply w-[100%]
+            }
+        } */
+    </style>
 </head>
 <body class="flex flex-col min-h-screen font-poppins">
     <script src="script.js"></script>
     <header class="bg-bluelght sticky top-0 pt-1">
+        <!-- Header (Jam, Navbar, search bar, dropdown) -->
         <section>
+            <!-- Jam -->
             <div id="clockdate" class="px-12 flex justify-between">
                 <div id="date" class="text-lg font-bold text-white drop-shadow"></div>
                 <div id="clock" class="text-lg font-bold text-white drop-shadow-lg"></div>
             </div>
         </section>
+        <!-- Navigation Bar -->
         <nav class="px-12 py-3 items-center flex justify-between text-white">
             <h1 class="pl-10 text-3xl font-semibold cursor-pointer">WW</h1>
+            <!-- Search -->
             <form action="" class="relative mx-auto w-max">
                 <i class="fi fi-rr-search absolute w-3 h-3 mt-1 ml-3 text-[#31363F] cursor-pointer"></i>
-                <input type="search" placeholder="Search" class="w-64 h-8 pl-10 rounded-full outline-none border text-black flex"/>
+                <input type="search" placeholder="Search" class="w-64 h-8 pl-10 rounded-full outline-none border text-black flex transition duration-300 shadow-md hover:shadow-lg"/>
             </form>
             <div id="dropdownButton" class="relative select-none">
                 <div class="px-5 cursor-pointer flex justify-between w-[100px] relative" style="color: #ffffff;" onclick="toggleDropdown()">
                     <i class="fa-solid fa-bars fa-xl"></i>
-                    <div id="dropdown" class="rounded border-[1px] border-gray-300 bg-white absolute top-[20px] w-[100px] shadow-md hidden">
+                    <div id="dropdown" class="rounded border-[1px] border-gray-300 bg-white absolute top-[20px] w-[130px] shadow-md hidden">
                         <div class="cursor-pointer hover:bg-gray-300 p-1 text-sm text-black">About Us</div>
                         <div class="cursor-pointer hover:bg-gray-300 p-1 text-sm text-black">About PKM</div>
                     </div>
                 </div>
             </div>
         </nav>
+        <!-- Dropdown -->
         <div class="px-28 py-2 flex justify-evenly bg-[#334966]">
             <a href="./index.html" class="text-white text-lg font-semibold relative hover:under active-link">
                 Hari Ini
@@ -78,26 +91,37 @@ rel="stylesheet">
         </div>
     </header>
 
+    <!-- Main Content (Today) -->
     <main class="flex-1 bg-[#F0F0F0]">
+        <aside class="float-left w-[30%] pl-5">
             <section class="p-5 mx-3 my-5 shadow hover:shadow-lg rounded-md bg-white">
-                <div>
-                    <h1 class="text-3xl">Hari Ini</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At ipsam necessitatibus quam nulla dolore dolorem eius possimus? Qui facilis nisi in sint. Qui libero illo doloremque, at dignissimos quia labore.</p>
+                <div class="text-[#222831]">
+                    <h1 class="text-3xl">Hari Ini di Jakarta</h1>
+                    <div class="flex gap-5">
+                        <h2 class="text-6xl pt-5">33°C</h2>
+                        <img src="icon/sun cloud.png" alt="weather-today">
+                    </div>
+                    <hr>
+                    <div>
+                        <h6 class="text-sm">Sabtu 11, Mei</h6>
+                        <h6 class="text-sm">15.00</h6>
+                    </div>
                 </div>
             </section>
+        </aside>
+        <div class="float-right w-[70%]"> 
             <section class="p-5 mx-3 my-5 shadow-lg rounded-md bg-white">
                 <div class="px-5">
-                    <h1 class="text-3xl">Prakiraan Cuaca hari ini</h1>
-                    <div class="jam-1 grid grid-cols-4 gap-4 cursor-pointer">
-                        <input type="checkbox" name="faq" id="faq1" class="appearance-none peer">
-                        <label for="faq1"
-                            class="flex items-center cursor-pointer font-semibold text-lg after:absolute after:right-5 after:text-2xl after:text-gray-400 hover:after:text-gray-950 peer-checked:after:transform peer-checked:after:rotate-45">
-                            <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                            <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                            <img src="" alt="">
-                            <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
+                    <h1 class="text-3xl text-[#222831]">Prakiraan Cuaca Besok Hari</h1>
+                    <div class="cursor-pointer text-[#222831]">
+                        <input type="checkbox" name="faq" id="jam1" class="appearance-none peer">
+                        <label for="jam1" class="grid grid-cols-5 gap-4 h-[60px] items-center cursor-pointer text-lg after:absolute after:right-5 after:text-2xl after:text-gray-400 hover:after:text-gray-950 peer-checked:after:transform peer-checked:after:rotate-45">
+                            <p class="px-5 pt-5 pb-3 text-2xl font-normal">01.00</p>
+                            <p class="px-5 pt-5 pb-3 text-2xl font-normal">33°C</p>
+                            <img src="icon/sun.png" alt="weather-now" >
+                            <p class="px-5 pt-5 pb-3 text-2xl font-normal">Panas</p>
                             <!-- Ganti ikon '+' dengan ikon Font Awesome -->
-                            <i class="fa-solid fa-circle-arrow-down" style="color: #334966;"></i>
+                            <i class="fa-solid fa-angle-down pt-5" style="color: #222831;"></i>
                         </label>
                         <div class="answer content mt-5 h-0 transition-all ease-in-out duration-500 overflow-hidden peer-checked:h-full">
                             <div class="flex gap-10 ">
@@ -105,365 +129,89 @@ rel="stylesheet">
                                     <p class="px-5 pt-5 pb-3 text-base font-normal">Maks/Min</p>
                                     <hr>
                                     <p class="px-5 pt-5 pb-3 text-base font-normal">Kelembapan</p>
-                                    <hr>
+                                    
                                 </div>
                                 <div class="w-[50%] mb-7">
                                     <p class="px-5 pt-5 pb-3 text-base font-normal">Kecepatan Angin</p>
                                     <hr>
                                     <p class="px-5 pt-5 pb-3 text-base font-normal">Intensitas Matahari</p>
-                                    <hr>
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="jam-2 grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
+                    <hr>
+                    <div class="cursor-pointer text-[#222831]">
+                        <input type="checkbox" name="faq" id="jam2" class="appearance-none peer">
+                        <label for="jam2" class="grid grid-cols-5 gap-4 h-[60px] items-center cursor-pointer text-lg after:absolute after:right-5 after:text-2xl after:text-gray-400 hover:after:text-gray-950 peer-checked:after:transform peer-checked:after:rotate-45">
+                            <p class="px-5 pt-5 pb-3 text-2xl font-normal">01.00</p>
+                            <p class="px-5 pt-5 pb-3 text-2xl font-normal">33°C</p>
+                            <img src="icon/sun.png" alt="weather-now" >
+                            <p class="px-5 pt-5 pb-3 text-2xl font-normal">Panas</p>
+                            <!-- Ganti ikon '+' dengan ikon Font Awesome -->
+                            <i class="fa-solid fa-angle-down pt-5" style="color: #222831;"></i>
+                        </label>
+                        <div class="answer content mt-5 h-0 transition-all ease-in-out duration-500 overflow-hidden peer-checked:h-full">
+                            <div class="flex gap-10 ">
+                                <div class="w-[50%]">
+                                    <p class="px-5 pt-5 pb-3 text-base font-normal">Maks/Min</p>
+                                    <hr>
+                                    <p class="px-5 pt-5 pb-3 text-base font-normal">Kelembapan</p>
+                                    
+                                </div>
+                                <div class="w-[50%] mb-7">
+                                    <p class="px-5 pt-5 pb-3 text-base font-normal">Kecepatan Angin</p>
+                                    <hr>
+                                    <p class="px-5 pt-5 pb-3 text-base font-normal">Intensitas Matahari</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <hr>
-                    <div class="jam-3 grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
+                    <div class="cursor-pointer text-[#222831]">
+                        <input type="checkbox" name="faq" id="jam3" class="appearance-none peer">
+                        <label for="jam3" class="grid grid-cols-5 gap-4 h-[60px] items-center cursor-pointer text-lg after:absolute after:right-5 after:text-2xl after:text-gray-400 hover:after:text-gray-950 peer-checked:after:transform peer-checked:after:rotate-45">
+                            <p class="px-5 pt-5 pb-3 text-2xl font-normal">01.00</p>
+                            <p class="px-5 pt-5 pb-3 text-2xl font-normal">33°C</p>
+                            <img src="icon/sun.png" alt="weather-now" >
+                            <p class="px-5 pt-5 pb-3 text-2xl font-normal">Panas</p>
+                            <!-- Ganti ikon '+' dengan ikon Font Awesome -->
+                            <i class="fa-solid fa-angle-down pt-5" style="color: #222831;"></i>
+                        </label>
+                        <div class="answer content mt-5 h-0 transition-all ease-in-out duration-500 overflow-hidden peer-checked:h-full">
+                            <div class="flex gap-10 ">
+                                <div class="w-[50%]">
+                                    <p class="px-5 pt-5 pb-3 text-base font-normal">Maks/Min</p>
+                                    <hr>
+                                    <p class="px-5 pt-5 pb-3 text-base font-normal">Kelembapan</p>
+                                    
+                                </div>
+                                <div class="w-[50%] mb-7">
+                                    <p class="px-5 pt-5 pb-3 text-base font-normal">Kecepatan Angin</p>
+                                    <hr>
+                                    <p class="px-5 pt-5 pb-3 text-base font-normal">Intensitas Matahari</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div> 
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div> 
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div> 
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div> 
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div> 
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div> 
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div> 
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div> 
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div> 
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div> 
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div> 
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div> 
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div>
-                    <hr>
-                    <div class="grid grid-cols-4 gap-4 cursor-pointer">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Jam</p>
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">Suhu</p>
-                        <img src="" alt="">
-                        <p class="px-5 pt-5 pb-3 text-2xl font-normal">lorem</p>
-                    </div> 
                 </div>
             </section>
+        </div>
     </main>
 
     <footer class="p-10 bg-[#222831] text-center flex gap-5 justify-between font-mono">
-        <div class="w-full mx-auto">
-            <h1 class="font-bold text-slate-200 ">Weather Watcher Web &#169; 2024</h1>
-        </div>
-        <div>
-            <a target="_blank" href="https://www.instagram.com/pkmkc_bluwest?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+        <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+            <span class="font-bold text-slate-200">Weather Watcher Web &#169; 2024</span>
+            <span class="select-none text-white">
+                Check Our Instagram 
+              <a target="_blank" href="https://www.instagram.com/pkmkc_bluwest?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
                 <i class="fa-brands fa-instagram fa-xl cursor-pointer" style="color: #ffffff;"> </i>
-            </a>
-        </div>   
+              </a>
+            </span>
+          </div>   
     </footer>
 </body>
 </html>
