@@ -53,27 +53,23 @@ rel="stylesheet">
             <img class ="w-7 h-7 mr-10 cursor-pointer" src="/icon/menu-burger .png" alt="bar">
         </nav>
         <div class="px-28 py-2 flex justify-between bg-[#334966]">
-            <a href="./bulan.html" class="text-white text-lg font-semibold relative hover:under">
+            <a href="./index.html" class="text-white text-lg font-semibold relative hover:under active-link">
                 Hari Ini
-                <div class="absolute bottom-0-[1px] left-0 w-full h-0.5 bg-white opacity-0 transition-opacity duration-200"></div>
-            </a>
-            <a href="./jam.html" class="text-white text-lg font-semibold relative hover:under">
-                Setiap Jam
-                <div class="absolute bottom-0-[1px] left-0 w-full h-0.5 bg-white opacity-0 transition-opacity duration-200"></div>
+                <div class="absolute bottom-0-[1px] left-0 w-full h-0.5 bg-white opacity-0 transition-opacity duration-200 underline"></div>
             </a>
             <a href="./minggu.html" class="text-white text-lg font-semibold relative hover:under">
-                Setiap Minggu
+                Per Minggu
                 <div class="absolute bottom-0-[1px] left-0 w-full h-0.5 bg-white opacity-0 transition-opacity duration-200"></div>
             </a>
             <a href="./bulan.html" class="text-white text-lg font-semibold relative hover:under">
-                Setiap Bulan
+                Per Bulan
                 <div class="absolute bottom-0-[1px] left-0 w-full h-0.5 bg-white opacity-0 transition-opacity duration-200"></div>
             </a>
         </div>
     </header>
 
-    <main class="flex-1 bg-[#F0F0F0]">
-        <div class="float-left w-[75%]">
+    <main class="flex flex-row bg-[#F0F0F0]">
+        <div class="float-right w-[80%]">
             <section class="p-5 mx-3 my-5 shadow-lg rounded-md bg-white">
                 <div class="px-5">
                     <h1 class="text-3xl">Prakiraan Cuaca hari ini</h1>
@@ -232,11 +228,14 @@ rel="stylesheet">
             </section>
         </div>
 
-        <aside class="float-right w-[25%] pl-5">
+        <aside class="float-left w-[20%] pl-5">
             <section class="p-5 mx-3 my-5 shadow hover:shadow-lg rounded-md bg-white">
-                <div>
-                    <h1 class="text-3xl">Info</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At ipsam necessitatibus quam nulla dolore dolorem eius possimus? Qui facilis nisi in sint. Qui libero illo doloremque, at dignissimos quia labore.</p>
+                <div class="text-[#222831]">
+                    <h1 class="text-3xl">Hari Ini di Jakarta</h1>
+                    <div class="flex gap-5">
+                        <h2 class="text-6xl pt-5">33°C</h2>
+                        <img src="icon/sun cloud.png" alt="weather-today">
+                    </div>
                 </div>
             </section>
         </aside>

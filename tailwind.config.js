@@ -11,6 +11,8 @@ module.exports = {
         'bluelght': '#4F709C',
       },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 }
 }

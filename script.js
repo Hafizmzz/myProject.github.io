@@ -1,3 +1,4 @@
+
 function timetoday(){
     var clockElement = document.getElementById("clock");
     var dateElement = document.getElementById("date");
@@ -17,8 +18,8 @@ function timetoday(){
         sec = updateTime(sec);
         
         clockElement.innerHTML = hr + " : " + min + " : " + sec + " " + ap;
-        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+        var days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
         var curWeekDay = days[today.getDay()];
         var curDay = today.getDate();
         var curMonth = months[today.getMonth()];
@@ -41,3 +42,7 @@ function timetoday(){
 // Panggil fungsi timetoday setelah dokumen selesai dimuat
 window.onload = timetoday();
 
+function toggleDropdown() {
+    let dropdown = document.querySelector('#dropdownButton #dropdown');
+    dropdown.classList.toggle("hidden");
+}
